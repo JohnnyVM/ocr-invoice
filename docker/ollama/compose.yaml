@@ -1,8 +1,9 @@
 services:
   ollama:
-    build:
-      context: ../..
-      dockerfile: docker/ollama/Dockerfile
+    image: ollama/ollama:latest
+    entrypoint:
+      - /bin/sh
+      - /entrypoint.sh
     ports:
       - "11434:11434"
     deploy:
