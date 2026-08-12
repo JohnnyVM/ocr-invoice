@@ -1,0 +1,22 @@
+[project]
+name = "ocr-extraction"
+version = "0.1.0"
+description = "A local laboratory for document image extraction experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26,<2",
+  "Pillow>=10.0",
+  "opencv-python-headless>=4.9,<5",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5", "mypy>=1.10", "respx>=0.21"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

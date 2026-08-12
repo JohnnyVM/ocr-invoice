@@ -4,6 +4,7 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 *.pyc
+*.egg-info/
 runs/
 mlruns/
 .env
@@ -11,3 +12,4 @@ data/ground_truth/*
 !data/ground_truth/.gitkeep
 data/samples/*
 !data/samples/.gitkeep
+/data/images

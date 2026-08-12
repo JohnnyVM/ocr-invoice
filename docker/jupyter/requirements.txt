@@ -1,0 +1,5 @@
+numpy>=1.26,<2
+Pillow>=10.0
+opencv-python-headless>=4.9,<5
+matplotlib>=3.8
+setuptools>=69

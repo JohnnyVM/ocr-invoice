@@ -47,6 +47,20 @@ uv run jupyter lab
 
 Each document uses one MLflow run. Tracking failures are retained as warnings unless `tracking.strict` is enabled.
 
+The reusable OCR code is packaged under `ocr/src/ocr_extraction`. The Docker
+Compose service mounts `ocr/` at `/home/jovyan/ocr`, so a notebook can install
+the live source without rebuilding the image:
+
+```python
+%pip install --no-deps --no-build-isolation -e /home/jovyan/ocr
+```
+
+Start the configured Jupyter Lab environment from the repository root:
+
+```bash
+docker compose -f docker/jupyter/compose.yaml up --build
+```
+
 ## Verification
 
 ```bash

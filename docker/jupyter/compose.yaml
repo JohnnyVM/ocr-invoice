@@ -1,0 +1,23 @@
+services:
+  jupyter:
+    build:
+      context: ../..
+      dockerfile: docker/jupyter/Dockerfile
+    image: ocr-invoice-jupyter:local
+    ports:
+      - "127.0.0.1:8888:8888"
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      JUPYTER_TOKEN: ""
+    volumes:
+      - ../../notebooks:/home/jovyan/work
+      - ../../ocr:/home/jovyan/ocr
+      - ../../data:/home/jovyan/data
+      - ../../runs:/home/jovyan/runs
+    command:
+      - start-notebook.py
+      - --ServerApp.ip=0.0.0.0
+      - --ServerApp.allow_remote_access=True
+      - --NotebookApp.token=''
+      - --NotebookApp.password=''
+    restart: unless-stopped
